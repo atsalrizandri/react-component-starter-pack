@@ -4,7 +4,6 @@ import '../assets/style.css';
 
 const TodoList = () => {
   const [tasks, setTasks] = useState([]);
-
   const [newTask, setNewTask] = useState('');
   const [newAssignee, setNewAssignee] = useState('');
   const [newDueDate, setNewDueDate] = useState('');
@@ -28,12 +27,23 @@ const TodoList = () => {
     setTasks(newTasks);
   };
 
+  const editTask = (index, updatedTask) => {
+    const newTasks = [...tasks];
+    newTasks[index] = updatedTask;
+    setTasks(newTasks);
+  };
+
+  const deleteTask = (index) => {
+    const newTasks = tasks.filter((_, taskIndex) => taskIndex !== index);
+    setTasks(newTasks);
+  };
+
   return (
     <div>
       <div className="input-form">
         <input 
           type="text" 
-          placeholder="Task Name" 
+          placeholder="Todo Name" 
           value={newTask} 
           onChange={(e) => setNewTask(e.target.value)} 
         />
@@ -48,13 +58,15 @@ const TodoList = () => {
           value={newDueDate} 
           onChange={(e) => setNewDueDate(e.target.value)} 
         />
-        <button onClick={addTask}>Add Task</button>
+        <button onClick={addTask}>Add Todo</button>
       </div>
       {tasks.map((task, index) => (
         <TodoItem 
           key={index} 
           {...task} 
-          toggleComplete={() => toggleComplete(index)} 
+          toggleComplete={() => toggleComplete(index)}
+          onEdit={(updatedTask) => editTask(index, updatedTask)}
+          onDelete={() => deleteTask(index)}
         />
       ))}
     </div>

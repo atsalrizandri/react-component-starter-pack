@@ -8,6 +8,10 @@ body {
     align-items: flex-start;
     height: 100vh;
 }
+
+.button-spacing {
+    margin-left: 10px;
+}
   
 h1 {
     font-weight: bold;
@@ -34,6 +38,11 @@ h1 {
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.todo-item .edit-form button:last-child {
+    margin-left: 10px;
+    background-color: #dc3545;
 }
   
 .task-info {
@@ -105,4 +114,91 @@ h1 {
   
 .input-form button:hover {
     background-color: #0056b3;
+}
+
+.edit-form {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+    
+.edit-form input {
+    padding: 5px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+}
+    
+.edit-form button {
+    padding: 5px 10px;
+    font-size: 14px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+  
+.edit-form button:hover {
+    background-color: #218838;
+}
+  
+.edit-form button:last-child {
+    background-color: #dc3545;
+}
+  
+.edit-form button:last-child:hover {
+    background-color: #c82333;
+}
+
+.edit-button {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 12px;
+    font-size: 14px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s;
+}
+
+.edit-button:hover {
+    background-color: #218838;
+    transform: scale(1.05);
+}
+
+
+.edit-button::before {
+    content: "\270E"; 
+    font-size: 16px;
+    margin-right: 5px;
+}
+
+
+.delete-button {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 12px;
+    font-size: 14px;
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s;
+}
+
+.delete-button:hover {
+    background-color: #c82333;
+    transform: scale(1.05);
+}
+
+.delete-button::before {
+    content: "\1F5D1";
+    font-size: 16px;
+    margin-right: 5px;
 }
